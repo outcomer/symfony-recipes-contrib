@@ -1,0 +1,41 @@
+{
+    "manifests": {
+        "solvrtech/symfony-logbook": {
+            "manifest": {
+                "bundles": {
+                    "Solvrtech\\Logbook\\LogbookBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/logbook.yaml": {
+                    "contents": [
+                        "logbook:",
+                        "    api:",
+                        "        # The base url of logbook app.",
+                        "        url: \"\"",
+                        "",
+                        "        # The API key of logbook client app.",
+                        "        key: \"\"",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/logbook.yaml": {
+                    "contents": [
+                        "logbook_health:",
+                        "    resource: \"@LogbookBundle/Resources/config/routes.yaml\"",
+                        "    prefix: /logbook-health",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "e9aa1907bcec92a4fdd4213d6bea62a857ce0448"
+        }
+    }
+}
