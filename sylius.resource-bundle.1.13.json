@@ -1,0 +1,59 @@
+{
+    "manifests": {
+        "sylius/resource-bundle": {
+            "manifest": {
+                "container": {
+                    "locale": "en"
+                },
+                "bundles": {
+                    "Sylius\\Bundle\\ResourceBundle\\SyliusResourceBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "src/": "%SRC_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/sylius_resource.yaml": {
+                    "contents": [
+                        "# @see https://stack.sylius.com/resource/index",
+                        "sylius_resource:",
+                        "    # Override default settings",
+                        "    #settings:",
+                        "",
+                        "    # Configure the mapping for your resources",
+                        "    mapping:",
+                        "        paths:",
+                        "            - '%kernel.project_dir%/src/Entity'",
+                        "",
+                        "    # Configure your resources",
+                        "    resources:",
+                        "        #app.book:",
+                        "            #classes:",
+                        "                #model: App\\Entity\\Book",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_resource.yaml": {
+                    "contents": [
+                        "sylius_resource_loader:",
+                        "    resource: 'sylius.symfony.routing.loader.resource'",
+                        "    type: service",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Entity/.gitignore": {
+                    "contents": [
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "44983507fd82e1b5ec6911cb7be8847064acd473"
+        }
+    }
+}
