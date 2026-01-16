@@ -2,6 +2,7 @@ name: Q&A
 
 on:
     pull_request_target:
+    workflow_dispatch:
 
 defaults:
     run:
